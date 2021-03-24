@@ -7,7 +7,7 @@ public class if_0 {
 	static Scanner sc = new Scanner(System.in);
 	public static int machine(int money) {
 		
-		System.out.println("¾ó¸¶ ÃæÀüÇÏ½Ã°Ú½À´Ï±î?");
+		System.out.println("충전하시겠습니까?");
 		int a = Integer.parseInt(sc.nextLine());
 		plus=a+money;
 		
