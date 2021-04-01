@@ -1,0 +1,112 @@
+package manager;
+
+import java.util.ArrayList;
+
+import vo.Member;
+
+public class Manager {
+	//field
+	
+	private ArrayList<Member> members;
+	
+
+	//생성자
+
+	public Manager() {
+		this.members = new ArrayList();  //arraylist 메모리상에 존재하게 하기
+	}
+
+	//method
+	
+	//신규 입력
+	public void add(Member m) {
+		this.members.add(m);
+	}
+	
+//목록 출력
+	public ArrayList<Member> getMembers(){
+		return members;
+	}	
+	
+//아이디 검색
+	public void searchId(String id) {
+		for(Member x : members) {
+			if(x.getId().contentEquals(id)) {
+				System.out.println("id: "+x.getId()+" "+"name: " +x.getName()+" "
+					+"국어: "+x.getKo()+" "+"영어: "+x.getEn()+" "+"수학: "+x.getMath());
+			}
+		}	
+	}
+//이름 검색
+	public ArrayList<Member> searchName(String name) {
+		ArrayList<Member> result = new ArrayList<>();  //검색 결과를 저장할 어레이리스트추가
+		
+		for(Member x : members) {
+			if(x.getName().contentEquals(name)) {
+				result.add(x);	                       //결과 저장
+			}
+		}
+		return result;
+	}
+	
+//삭제
+public void deleteInfo(String id) {
+	for(int i=0; i<members.size(); i++) {
+		if(members.get(i).getId().contentEquals(id)) {
+			members.remove(i);
+			
+		}
+	}
+	
+}
+//삭제 버전 2
+public void deletBy(String id) {
+	for(Member x : members) {
+		if(x.getId().contentEquals(id)) {
+			members.remove(x);
+		}
+	}
+}
+
+//출력 형식
+public void foreach(ArrayList<Member> s) {
+	for(Member x : s) {
+		System.out.println("학번: "+x.getId()+"\t"+
+				"이름: "+x.getName()+"\t"+
+				"국어: "+x.getKo()+"\t"+
+				"영어: "+x.getEn()+"\t"+
+				"수학: "+x.getMath());
+	} 
+}
+
+//아이디 입력 중복 방지
+public boolean isIdExist(String id) {
+	for(Member x: members) {
+		if(x.getId().contentEquals(id)) {
+			return true;
+		}
+	}
+	
+	return false;
+}
+
+//업데이트
+public void updateById(String id,String name,int ko,int en,int math) {
+	
+	
+	for(int i=0; i<members.size(); i++) {
+		if(members.get(i).getId().contentEquals(id)) {
+			
+			members.get(i).setName(name);
+			members.get(i).setKo(ko);
+			members.get(i).setEn(en);
+			members.get(i).setMath(math);
+		}
+	}
+} 
+}
+
+
+	
+
+
